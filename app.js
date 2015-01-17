@@ -10,8 +10,8 @@ $.getJSON('data.json', function(tracks){
     $('i').addClass('fa-play');
     $(this).removeClass('fa-play');
     $(this).addClass('fa-stop');
-    $('h1').text("Now playing: "  );
-    document.getElementById("thrill-of-the-hunt").play();
+    var playing= $(this).data('title');
+    $('h2.select').html("Now playing: " + playing );
 
   });
   $('.container').on('click', '.fa-stop', function(){

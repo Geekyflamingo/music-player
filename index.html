@@ -8,26 +8,36 @@
 </head>
 <body>
   <article>
-  <h2>Select a Song!</h2>
+
+  <h2 class= "select">Select a Song!</h2>
 
   <section class="tracks container">
 
   </section>
 
-  <script type="text/template" class="tracksTemplate">
-    {{#tracks}}
-    <div class="ui segment">
-      <i class="fa fa-play">{{title}}</i>
+  <script type="text/template" class="tracksTemplate" >
+    <article class="ui segment">
+      {{#tracks}}
+      <div class="ui vertical segment">
+      <h2>
+        <i data-title= "{{title}}" class="fa fa-play"></i>
+        {{title}} by {{artist}}
+      </h2>
+      <audio id="{{id}}" src="tracks/{{file}}.mp3" preload='none'></audio>
     </div>
     {{/tracks}}
+    </article>
+  </script>
+
+  <script type="text/template" id="playerHeaderTemplate" >
+  {{^title}}<h2>Select a song!</h2>{{/title}}
+  {{#title}}<h2>Now Playing: <strong>{{.}}</strong></h2>{{/title}}
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
   <script src = "bower_components/jquery/dist/jquery.js"></script>
   <script src = "bower_components/mustache/mustache.js"></script>
   <script src="app.js" type="text/javascript" charset="utf-8"></script>
-
-  <audio id="thrill" src="/tracks.zip/thrill-of-the-hunt.mp3"></audio>
 
 </body>
 </html>
