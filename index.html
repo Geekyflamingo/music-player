@@ -1,43 +1,37 @@
-<!doctype>
-<html>
-<head>
-  <title>Music Player</title>
-  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="app.css">
-  <link rel="stylesheet" type="text/css" href="semantic.css">
-</head>
-<body>
-  <article>
+  <!doctype html>
+  <html>
+  <head>
+    <title>Music Player</title>
+    <link rel="stylesheet" type="text/css" href="semantic.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <header class="ui black message tracks-header">
+      <h2 class = "select">Select a song!</h1>
+    </header>
+    <main>
+      <section id="musicPlayer"></section>
+    </main>
 
-  <h2 class= "select">Select a Song!</h2>
 
-  <section class="tracks container">
-
-  </section>
-
-  <script type="text/template" class="tracksTemplate" >
-    <article class="ui segment">
-      {{#tracks}}
-      <div class="ui vertical segment">
-      <h2>
-        <i data-title= "{{title}}" class="fa fa-play"></i>
-        {{title}} by {{artist}}
-      </h2>
-      <audio id="{{id}}" src="tracks/{{file}}.mp3" preload='none'></audio>
+    <script type="text/template" id="trackList">
+    <article>
+    {{#tracks}}
+    <div class="ui vertical segment">
+    <h2>
+    <i data-id="{{id}}" data-title="{{title}}" class="fa fa-play">
+    </i>
+    {{title}} by {{artist}}
+    <h2>
+    <audio id="{{id}}" src="tracks/{{file}}.mp3" preload='none'></audio>
     </div>
     {{/tracks}}
     </article>
-  </script>
+    </script>
 
-  <script type="text/template" id="playerHeaderTemplate" >
-  {{^title}}<h2>Select a song!</h2>{{/title}}
-  {{#title}}<h2>Now Playing: <strong>{{.}}</strong></h2>{{/title}}
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-  <script src = "bower_components/jquery/dist/jquery.js"></script>
-  <script src = "bower_components/mustache/mustache.js"></script>
-  <script src="app.js" type="text/javascript" charset="utf-8"></script>
-
-</body>
-</html>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/mustache/mustache.js"></script>
+    <script src="app.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+  </html>
